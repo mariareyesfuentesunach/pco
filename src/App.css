@@ -12,10 +12,10 @@ body {
   align-items: center; /* Alinea verticalmente el logo y el navbar */
   justify-content: center; /* Centra los elementos dentro del contenedor */
   position: relative;
-  top: 1px; /* Lo posiciona a 10px del borde superior */
-  left: 50%; /* Lo centra horizontalmente */
+  top: -30px; /* Lo posiciona a 10px del borde superior */
+  left: 49%; /* Lo centra horizontalmente */
   transform: translateX(-50%); /* Ajusta la posición para que esté centrado */
-  width: 90%; /* Define el ancho del contenedor */
+  width: 105%; /* Define el ancho del contenedor */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
   margin-bottom: 0px; /* Espacio entre navbar y banner */
   
@@ -24,7 +24,7 @@ body {
 /* 🎨 Estilos para el logo */
 .logo {
   height: 170px; /* Aumenta el tamaño del logo */
-  margin-right: 40px; /* Agrega espacio entre el logo y el navbar */
+  margin-right: -10px; /* Agrega espacio entre el logo y el navbar */
 }
 
 /* 🎯 Estilos para el navbar */
@@ -33,13 +33,13 @@ body {
   background-color: rgb(255, 255, 255) !important; /* Color de fondo del navbar */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra ligera */
   border-radius: 50px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
+  padding: 10px 100px; /* Espaciado interno */
 }
 
 /* 📌 Estilos para la lista de navegación */
 .navbar-nav {
   display: flex; /* Muestra los elementos en línea */
-  gap: 8rem; /* Espaciado entre elementos del menú */
+  gap: 7rem; /* Espaciado entre elementos del menú */
   list-style: none; /* Elimina los estilos de lista predeterminados */
   padding: 0; /* Elimina el relleno predeterminado */
   margin: 0; /* Elimina el margen predeterminado */
@@ -61,7 +61,7 @@ body {
 }
 
 .banner-container {
-  margin-top: 120px; /* Separa el banner del navbar */
+  margin-top: 100px; /* Separa el banner del navbar */
   width: 100%;
   padding: 0 50px; /* 50px de espacio a los lados */
 }
@@ -71,28 +71,30 @@ body {
   width: 10%;
   height: 50px; /* Ajusta la altura del banner */
   overflow: hidden;
+
 }
 
 /* Imagen dentro del banner */
 .banner img {
   width: 100%;
-  height: 70%;
+  height: 50%;
   object-fit: cover; /* Ajusta la imagen sin deformarla */
   border-radius: 45%;
 }
 
 /*Carrusel de imagenes*/
 .carousel-container {
-  width: 100%;
+  width: 96%; /* Ajusta el ancho del carrusel */
   max-width: 2000px; /* Ajusta según el diseño */
   margin: auto;
-  height: 500px; /* Altura fija del carrusel */
+  height: 600px; /* Altura fija del carrusel */
   overflow: hidden;
+  top: -60px;
 }
 
 .carousel-container .carousel-inner {
   height: 100%; /* Mantiene la altura del carrusel */
-  border-radius: 4%;
+  border-radius: 0%;
 }
 
 .carousel-container img {
@@ -161,11 +163,17 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave para hover */
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
   width: 15%;
+
 }
 
 .big-button:hover {
   background-color: #2a4725; /* Color más oscuro al pasar el mouse (hover) */
   transform: scale(1.05); /* Aumenta ligeramente el tamaño en hover */
+}
+
+.big-button {
+  position: relative;
+  top: -50px; /* Mueve el botón 20px hacia arriba */
 }
 
 
@@ -174,7 +182,7 @@ body {
 /* 🔥 Estilos de la sección de Tours */
 .tours-section {
   text-align: center;
-  padding: 50px 20px;
+  padding: 0px 20px;
 }
 
 /* 📌 Contenedor de la tarjeta del tour */
@@ -184,7 +192,7 @@ body {
   border-radius: 25px;
   margin-top: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  max-width: 1200px;
+  max-width: 1450px;
   margin: auto;
 }
 
@@ -203,35 +211,37 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* 📜 Texto del tour */
 .tour-text {
   flex: 1;
   text-align: left;
-  padding: 10px;
+  padding: 30px;
 }
 
 .tour-text h3 {
   font-size: 24px;
   color: #2b3e1b;
-  margin-bottom: 10px;
-  text-align: center;
+  margin-bottom: 15px;
+  text-align: left;
   font-size: 2.0rem;
+  padding: 5px;
 }
 
 .tour-text p {
   font-size: 16px;
   color: #555;
   font-size: 1.0rem;
+  padding: 5px;
 
 }
 
 /* 📌 Lista de detalles */
 .tour-details {
   list-style: none;
-  padding: 0;
+  padding: 5px;
   margin-top: 10px;
 }
 
@@ -255,41 +265,123 @@ body {
 .tour-image-container {
   position: relative; /* Necesario para posicionar la calificación */
   text-align: right; /* Alinea todo el contenido a la derecha */
+  padding: 20px;
 
-}
-
-/* ⭐ Calificación */
-.tour-rating {
-  margin-top: 5px; /* Espacio entre la imagen y la calificación */
-  font-size: 18px;
-  font-weight: bold;
-  color: #2b3e1b; /* Color verde oscuro */
-}
-
-/* 🌟 Estilo para las estrellas */
-.tour-rating .stars {
-  font-size: 20px;
-  color: #416017; /* Estrellas doradas */
 }
 
 .tour-image {
   width: 100%;
-  max-width: 450px;
+  max-width: 650px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   
 }
 
 
+/*PAQUETE SEGUNDA FICHA*/
+/* --- Sección Paquetes --- */
+/* 🔥 Estilos de la sección de Paquetes */
+.paquete-section {
+  text-align: center;
+  padding: 0px 20px;
+}
+
+/* 📌 Contenedor de la tarjeta del tour */
+.paquete-card {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 25px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  max-width: 1450px;
+  margin: auto;
+  margin-top: 50px; /* Espacio entre la sección de Tours y Paquetes */
+}
+
+/* 🎨 Título de la sección */
+.paquete-title {
+  font-size: 28px;
+  color: #2b3e1b;
+  margin-bottom: 30px;
+  font-size: 3.5rem;
+
+}
+
+/* 📌 Contenedor del contenido */
+.paquete-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 📜 Texto del paquete */
+.paquete-text {
+  flex: 1;
+  text-align: left;
+  padding: 30px;
+}
+
+.paquete-text h3 {
+  font-size: 24px;
+  color: #2b3e1b;
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 2.0rem;
+  padding: 5px;
+}
+
+.paquete-text p {
+  font-size: 16px;
+  color: #555;
+  font-size: 1.0rem;
+  padding: 5px;
+
+}
+
+/* 📌 Lista de detalles */
+.paquete-details {
+  list-style: none;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.paquete-details li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+/* 🎨 Línea separadora */
+.line-separator {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #2b3e1b, #6c8f4e, #2b3e1b); /* Color con efecto degradado */
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+/*Imagen calificaion*/
+/* 📸 Contenedor de la imagen */
+.paquete-image-container {
+  position: relative; /* Necesario para posicionar la calificación */
+  text-align: right; /* Alinea todo el contenido a la derecha */
+  padding: 20px;
+  max-width: 50%;
+  margin-top: -10px; /* Espacio hacia arriba */
+
+}
+
 /*GALERIAA*/
 
 /* --- Contenedor de la galería --- */
 .gallery {
   display: flex;
-  gap: 10px;
+  gap: 0px;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
   flex-wrap: wrap;
 }
 
@@ -297,9 +389,9 @@ body {
 .gallery-item {
   position: relative;
   overflow: hidden;
-  width: 250px; /* Reducimos el ancho */
+  width: 280px; /* Reducimos el ancho */
   height: 500px; /* Aumentamos la altura */
-  border-radius: 10px;
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -321,19 +413,19 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   position: relative;
   z-index: 0; /* Se mantiene debajo del fondo negro */
 }
 
 /* --- Efecto hover (escala la imagen) --- */
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.09);
 }
 
 /* --- Imagen activa (se agranda al hacer clic) --- */
 .gallery-item.active {
-  width: 270px; /* Se agranda un poco más */
+  width: 280px; /* Se agranda un poco más */
   height: 420px;
   z-index: 10;
   transform: scale(1.2);
@@ -370,26 +462,139 @@ body {
   z-index: 2; /* Para que esté sobre el fondo negro */
 }
 
-/* --- Botón "Ver Más" --- */
-.vermas-button {
-  background-color: #223509; /* Verde oscuro */
-  color: white; /* Texto en blanco */
-  font-size: 1.2rem; /* Tamaño del texto */
-  padding: 12px 24px; /* Espaciado interno */
-  border: none;
-  border-radius: 90px; /* Bordes redondeados */
-  transition: background-color 0.3s ease, transform 0.2s ease; 
+.stars {
+  font-size: 1.5rem;
   cursor: pointer;
-  width: 200px;
-  max-width: 200px;
+}
+
+.stars .filled {
+  color: gold;
+}
+
+.stars .empty {
+  color: lightgray;
+}
+
+.rating {
+  margin-top: 10px;
   text-align: center;
 }
 
-/* Efecto hover para que se vea mejor */
-.vermas-button:hover {
-  background-color: #2a4725; /* Verde más oscuro */
+
+
+/*cuadro de tours */
+.cuatours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Cada cuadro */
+.cuatours-item {
+  width: 336px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cuatours-item:hover {
   transform: scale(1.05);
 }
+
+/* 📷 Cuadro blanco detrás de todo (imagen + texto) */
+.item-wrapper {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen */
+.item-wrapper img {
+  width: 95%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Información */
+.item-info {
+  margin-top: 20px;
+}
+
+.item-info h5 {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  font-size: 14px;
+  color: #000000;
+}
+
+.tour-details p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.tour-details strong {
+  font-weight: bold;
+}
+
+/* 📌 Modal con fondo transparente */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.modal-content p {
+  color: #555;
+  font-size: 16px;
+}
+
+.modal-content .tour-details p {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 3%;
+
+}
+
 
 
 /*PAQUETES*/
@@ -397,10 +602,10 @@ body {
 /* --- Galería de Paquetes --- */
 .paquete-gallery {
   display: flex;
-  gap: 10px;
+  gap: 0px;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 30px;
   flex-wrap: wrap;
 }
 
@@ -408,9 +613,9 @@ body {
 .paquete-item {
   position: relative;
   overflow: hidden;
-  width: 250px;
+  width: 280px;
   height: 500px;
-  border-radius: 10px;
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -432,19 +637,19 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   position: relative;
   z-index: 0;
 }
 
 /* --- Efecto hover (escala la imagen) --- */
 .paquete-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.09);
 }
 
 /* --- Imagen activa (se agranda al hacer clic) --- */
 .paquete-item.active {
-  width: 270px;
+  width: 280px;
   height: 420px;
   z-index: 10;
   transform: scale(1.2);
@@ -480,6 +685,119 @@ body {
   z-index: 2;
 }
 
+
+/*cuadro de paquete */
+.cuapaquetes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Cada cuadro */
+.cuapaquetes-item {
+  width: 336px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cuapaquetes-item:hover {
+  transform: scale(1.05);
+}
+
+/* 📷 Cuadro blanco detrás de todo (imagen + texto) */
+.item-wrapper {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen */
+.item-wrapper img {
+  width: 95%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Información */
+.item-info {
+  margin-top: 20px;
+}
+
+.item-info h5 {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  font-size: 14px;
+  color: #000000;
+}
+
+.package-details p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.package-details strong {
+  font-weight: bold;
+}
+
+/* 📌 Modal con fondo transparente */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.modal-content p {
+  color: #555;
+  font-size: 16px;
+}
+
+.modal-content .tour-details p {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 3%;
+
+}
 
 
 
