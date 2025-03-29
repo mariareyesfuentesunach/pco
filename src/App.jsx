@@ -174,14 +174,6 @@ const App = () => {
         </Carousel.Item>
 
         <Carousel.Item>
-          <img className="d-block w-100" src="/img/c7.jpg" alt="Cañón del Sumidero" />
-          <Carousel.Caption>
-            <h1 className="banner-title">Paquetes</h1>
-            <p className="banner-subtitle">Aventura en cada rincón</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
           <img className="d-block w-100" src="/img/c8.jpg" alt="Cañón del Sumidero" />
           <Carousel.Caption>
             <h1 className="banner-title">Chiapas Oculto</h1>
@@ -195,62 +187,6 @@ const App = () => {
         <button className="btn btn-success big-button">Nosotros</button>
       </div>
 
-      {/* Tours */}
-      <section className="tours-section" id="Tours">
-        <div className="tour-card container">
-          <h2 className="tours-title">Tours</h2>
-          <div className="tour-content">
-            <div className="tour-text">
-              <h3>Zona Arqueológica Palenque</h3>
-              <p>
-                Un viaje a Palenque, Chiapas, es una experiencia inolvidable que combina historia,
-                naturaleza y cultura en un solo destino.
-              </p>
-
-              <div className="line-separator"></div>
-
-              <ul className="tour-details">
-                <li>$980.00</li>
-                <li>Por persona</li>
-                <li>Minimo 2 personas</li>
-                <li>Maximo 10 personas</li>
-              </ul>
-              <ul className="tour-details">
-                <li>Duración del recorrido: 1 Día</li>
-              </ul>
-            </div>
-
-            {/* Contenedor de imagen + calificación */}
-            <div className="tour-image-container">
-              <img src="/img/Tpalenque.jpg" alt="Zona Arqueológica Palenque" className="tour-image" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Galería de Imágenes */}
-      <div className="gallery">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`gallery-item ${activeIndex === index ? "active" : ""}`}
-            onClick={() => setActiveIndex(index === activeIndex ? null : index)}
-          >
-            {/* Imagen */}
-            <img src={image.src} alt={image.title} />
-
-            {/* Overlay con título */}
-            <div className="overlay">
-              <h5>{image.title}</h5>
-            </div>
-
-            {/* Rating Interactivo */}
-            <div className="rating">
-              <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
-            </div>
-          </div>
-        ))}
-      </div>
 
       {/* cuadro de tours */}
       <div className="cuatours">
@@ -294,6 +230,50 @@ const App = () => {
         </div>
       )}
 
+      {/* Tours */}
+      <div className="single-image-tours">
+      <img src="/img/planqueb.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
+      <div className="tours-caption">
+        <h1 className="tours-title">Zona Arqueológica Palenque</h1>
+        <p className="tours-subtitle">
+          Un viaje a Palenque, Chiapas, es una experiencia inolvidable que combina historia, 
+          naturaleza y cultura en un solo destino.
+        </p>
+        
+        {/* Información del tour */}
+        <div className="tours-details">
+          <p><strong>Precio:</strong> $980.00</p>
+          <p><strong>Por persona</strong></p>
+          <p><strong>Mínimo:</strong> 2 personas</p>
+          <p><strong>Máximo:</strong> 10 personas</p>
+          <p><strong>Duración:</strong> 1 Día</p>
+        </div>
+      </div>
+    </div>
+
+      {/* Galería de Imágenes */}
+      <div className="gallery">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`gallery-item ${activeIndex === index ? "active" : ""}`}
+            onClick={() => setActiveIndex(index === activeIndex ? null : index)}
+          >
+            {/* Imagen */}
+            <img src={image.src} alt={image.title} />
+
+            {/* Overlay con título */}
+            <div className="overlay">
+              <h5>{image.title}</h5>
+            </div>
+
+            {/* Rating Interactivo */}
+            <div className="rating">
+              <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
+            </div>
+          </div>
+        ))}
+      </div>
 
 
       {/* Paquetes */}

@@ -84,7 +84,7 @@ body {
 
 /*Carrusel de imagenes*/
 .carousel-container {
-  width: 96%; /* Ajusta el ancho del carrusel */
+  width: 100%; /* Ajusta el ancho del carrusel */
   max-width: 2000px; /* Ajusta según el diseño */
   margin: auto;
   height: 600px; /* Altura fija del carrusel */
@@ -178,105 +178,68 @@ body {
 
 
 /*TOURS PRIMER FICHA*/
-/* --- Sección Tours --- */
-/* 🔥 Estilos de la sección de Tours */
-.tours-section {
+.single-image-tours {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Ajusta la altura si es necesario */
+  overflow: hidden;
+}
+
+.single-image-tours::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.305); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
+}
+
+/* Imagen de fondo */
+.tours-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenedor del texto encima de la imagen */
+.tours-caption {
+  position: absolute;
+  bottom: 20%; /* Ajusta la posición vertical */
+  left: 25%;
+  top: 25%;
+  transform: translateX(-50%);
   text-align: center;
-  padding: 0px 20px;
-}
+  color: white;
 
-/* 📌 Contenedor de la tarjeta del tour */
-.tour-card {
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 25px;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  max-width: 1450px;
-  margin: auto;
-}
-
-/* 🎨 Título de la sección */
-.tours-title {
-  font-size: 28px;
-  color: #2b3e1b;
-  margin-bottom: 20px;
-  font-size: 3.5rem;
-
-}
-
-/* 📌 Contenedor del contenido */
-.tour-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* 📜 Texto del tour */
-.tour-text {
-  flex: 1;
-  text-align: left;
-  padding: 30px;
-}
-
-.tour-text h3 {
-  font-size: 24px;
-  color: #2b3e1b;
-  margin-bottom: 15px;
-  text-align: left;
-  font-size: 2.0rem;
-  padding: 5px;
-}
-
-.tour-text p {
-  font-size: 16px;
-  color: #555;
-  font-size: 1.0rem;
-  padding: 5px;
-
-}
-
-/* 📌 Lista de detalles */
-.tour-details {
-  list-style: none;
-  padding: 5px;
-  margin-top: 10px;
-}
-
-.tour-details li {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 5px;
-}
-
-/* 🎨 Línea separadora */
-.line-separator {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, #2b3e1b, #6c8f4e, #2b3e1b); /* Color con efecto degradado */
-  margin: 15px 0;
-  border-radius: 5px;
-}
-
-/*Imagen calificaion*/
-/* 📸 Contenedor de la imagen */
-.tour-image-container {
-  position: relative; /* Necesario para posicionar la calificación */
-  text-align: right; /* Alinea todo el contenido a la derecha */
   padding: 20px;
-
+  border-radius: 0px;
+  width: 1000%;
+  max-width: 700px;
 }
 
-.tour-image {
-  width: 100%;
-  max-width: 650px;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+/* Estilo del título */
+.tours-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
+/* Estilo del subtítulo */
+.tours-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Estilo de los detalles del tour */
+.tours-details {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: left;
+  margin-left: 5%;
+
+
+}
 
 /*PAQUETE SEGUNDA FICHA*/
 /* --- Sección Paquetes --- */
@@ -293,7 +256,7 @@ body {
   border-radius: 25px;
   margin-top: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  max-width: 1450px;
+  max-width: 1401px;
   margin: auto;
   margin-top: 50px; /* Espacio entre la sección de Tours y Paquetes */
 }
