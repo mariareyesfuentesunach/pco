@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Carousel } from "react-bootstrap";
@@ -18,9 +19,10 @@ const imgtours = [
     shortDescription: "Cascadas turquesa en Chiapas.",
     description: "El tour a Agua Azul te lleva a cascadas turquesa rodeadas de selva, con pozas naturales para disfrutar.",
     price: "$980.00",
-    duration: "1 Día"
-
-
+    duration: "1 Día",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
   },
   {
     src: "/img/cañon.jpg",
@@ -39,7 +41,10 @@ const imgtours = [
     shortDescription: "Arco de roca en medio de la selva.",
     description: "Un espectacular parque ecológico cerca de San Cristóbal de las Casas, con un imponente arco de piedra caliza, cuevas y actividades como senderismo y tirolesa.",
     price: "$700.00",
-    duration: "1 Día"
+    duration: "1 Día",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
   },
   {
     src: "/img/sima.jpg",
@@ -47,7 +52,10 @@ const imgtours = [
     shortDescription: "Un abismo lleno de cotorras.",
     description: "Un abismo natural con cientos de cotorras volando al amanecer.",
     price: "$600.00",
-    duration: "1 Día"
+    duration: "1 Día",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
   },
 
 
@@ -113,12 +121,15 @@ const paquetes = [
 
 const RatingStars = ({ rating, onRate }) => {
   return (
-    <div className="stars">
+    <div className="stars" onClick={(e) => e.stopPropagation()}>
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
           className={star <= rating ? "filled" : "empty"}
-          onClick={() => onRate(star)}
+          onClick={(e) =>
+            e.stopPropagation() || onRate(star)
+          }
+
         >
           ★
         </span>
@@ -144,7 +155,7 @@ const App = () => {
 
   window.addEventListener('scroll', function () {
     const widget = document.querySelector('.floating-widget');
-  
+
     // Si el usuario ha hecho scroll hacia abajo (más de 100px), mostrar el widget con animación
     if (window.scrollY > 100) {
       widget.style.opacity = '1';  // Muestra el widget
@@ -154,21 +165,21 @@ const App = () => {
       widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
     }
   });
-  
+
   function ScrollButton() {
     const [isBottom, setIsBottom] = useState(false);
     const scrollRef = useRef(null);
-  
+
     useEffect(() => {
       const handleScroll = () => {
         const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
         setIsBottom(isAtBottom);
       };
-  
+
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-  
+
     const handleScrollClick = () => {
       if (isBottom) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -176,17 +187,18 @@ const App = () => {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       }
     };
-  
+
     return (
       <button onClick={handleScrollClick} className="scroll-button">
         <img
-          src={isBottom ? "img/scroll2.png" : "img/scroll.png"}
+          src={isBottom ? "img/avi.png" : "img/avi.png"}
           alt="Scroll Button"
           className="scroll-image"
         />
       </button>
     );
   }
+
 
   return (
     <>
@@ -240,6 +252,13 @@ const App = () => {
         <button className="btn btn-success big-button">Nosotros</button>
       </div>
 
+      <div className="customt-table" id="tours">
+        <div className="customt-row header">
+          <div className="customt-cell">
+            <h2><b>TOURS</b></h2>
+          </div>
+        </div>
+
 
       {/* cuadro de tours */}
       <div className="cuatours">
@@ -285,24 +304,24 @@ const App = () => {
 
       {/* Tours */}
       <div className="single-image-tours">
-      <img src="/img/palenque.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
-      <div className="tours-caption">
-        <h1 className="tours-title">Zona Arqueológica Palenque</h1>
-        <p className="tours-subtitle">
-          Un viaje a Palenque, Chiapas, es una experiencia inolvidable <br></br> 
-          que combina historia, naturaleza y cultura en un solo destino.
-        </p>
-        <div className="line-separatort"></div>
-        {/* Información del tour */}
-        <div className="tours-details">
-          <p><strong>Precio:</strong> $980.00</p>
-          <p><strong>Por persona</strong></p>
-          <p><strong>Mínimo:</strong> 2 personas</p>
-          <p><strong>Máximo:</strong> 10 personas</p>
-          <p><strong>Duración:</strong> 1 Día</p>
+        <img src="/img/palenque.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
+        <div className="tours-caption">
+          <h1 className="tours-title">Zona Arqueológica Palenque</h1>
+          <p className="tours-subtitle">
+            Un viaje a Palenque, Chiapas, es una experiencia inolvidable <br></br>
+            que combina historia, naturaleza y cultura en un solo destino.
+          </p>
+          <div className="line-separatort"></div>
+          {/* Información del tour */}
+          <div className="tours-details">
+            <p><strong>Precio:</strong> $980.00</p>
+            <p><strong>Por persona</strong></p>
+            <p><strong>Mínimo:</strong> 2 personas</p>
+            <p><strong>Máximo:</strong> 10 personas</p>
+            <p><strong>Duración:</strong> 1 Día</p>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Galería de Imágenes */}
       <div className="gallery">
@@ -327,8 +346,14 @@ const App = () => {
           </div>
         ))}
       </div>
+      </div>
 
-
+      <div className="custom-table" id="paquetes">
+        <div className="custom-row header">
+          <div className="custom-cell">
+            <h2><b>PAQUETES</b></h2>
+          </div>
+        </div>
       {/* cuadro de paquetes */}
       <div className="cuapaquetes">
         {imgpaquetes.map((img, index) => (
@@ -379,25 +404,25 @@ const App = () => {
       <div className="App">
         {/* Sección de Paquetes */}
         <div className="single-image-paquete">
-      <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="paquete-image" />
-      <div className="paquete-caption">
-        <h1 className="paquete-title">Chiapas: Selva, Cultura y Aventura</h1>
-        <p className="paquete-subtitle">
-        Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes, 
-        cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas 
-        y maravíllate con los paisajes más espectaculares del sureste mexicano.
-        </p>
-        <div className="line-separator"></div>
-        {/* Información del tour */}
-        <div className="paquete-details">
-          <p><strong>Precio:</strong> $2,200.00</p>
-          <p><strong>Por persona</strong></p>
-          <p><strong>Mínimo:</strong> 2 personas</p>
-          <p><strong>Máximo:</strong> 10 personas</p>
-          <p><strong>Duración:</strong> 5 Días</p>
+          <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="paquete-image" />
+          <div className="paquete-caption">
+            <h1 className="paquete-title">Chiapas: Selva, Cultura y Aventura</h1>
+            <p className="paquete-subtitle">
+              Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes,
+              cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas
+              y maravíllate con los paisajes más espectaculares del sureste mexicano.
+            </p>
+            <div className="line-separator"></div>
+            {/* Información del tour */}
+            <div className="paquete-details">
+              <p><strong>Precio:</strong> $2,200.00</p>
+              <p><strong>Por persona</strong></p>
+              <p><strong>Mínimo:</strong> 2 personas</p>
+              <p><strong>Máximo:</strong> 10 personas</p>
+              <p><strong>Duración:</strong> 5 Días</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
         {/* Galería de Paquetes */}
         <div className="paquete-gallery">
@@ -423,12 +448,58 @@ const App = () => {
           ))}
         </div>
       </div>
+      </div>
 
+      <div className="custom-table" id="paquetes">
+        <div className="custom-row header">
+          <div className="custom-cell">
+            <h2><b>CONTACTO</b></h2>
+          </div>
+        </div>
+      <div className="card-container">
+        <div className="custom-card">
+          <div className="title-container">
+            <img src="/img/phone-call.png" alt="Phone" className="icon" />
+            <h5>Teléfono</h5>
+          </div>
+          <p>961 470 6290</p>
+        </div>
 
+        <div className="custom-card1">
+          <div className="title-container">
+            <img src="/email-icon.png" alt="Email" className="icon" />
+            <h5>Correo Electrónico</h5>
+          </div>
+          <p>chiapasoculto.com</p>
+        </div>
 
-      
+        <div className="custom-card2">
+          <div className="title-container">
+            <img src="/location-icon.png" alt="Location" className="icon" />
+            <h5>Localización</h5>
+          </div>
+          <p>Tuxtla Gutiérrez, Chiapas</p>
+        </div>
+      </div>
 
-      
+      <div className="map-container">
+      <iframe
+        title="Mapa de Tuxtla Gutiérrez"
+        width="90%"
+        height="300"
+        style={{ border: "0", borderRadius: "10px" }}
+        loading="lazy"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.841518029756!2d-93.11897882458397!3d16.750215984987328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd88b2c3f7f97%3A0x3dfcd387b6c94b1e!2sTuxtla%20Guti%C3%A9rrez%2C%20Chis.!5e0!3m2!1ses-419!2smx!4v1712134567890"
+      ></iframe>
+    </div>
+    </div>
+
+      <div class="floating-widget">
+        <ScrollButton />
+      </div>
+
     </>
   );
 };

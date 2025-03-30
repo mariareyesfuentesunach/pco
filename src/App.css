@@ -643,8 +643,8 @@ body {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  padding: 20px;
-  margin-top: 150px; /* Espacio entre la sección de Tours y Paquetes */
+  padding: 10px;
+  margin-top: -50px; /* Espacio entre la sección de Tours y Paquetes */
 }
 
 /* Cada cuadro */
@@ -751,6 +751,136 @@ body {
 
 }
 
+/* Contacto */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  background-color: #f5f5e6;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: -70px; /* Espacio entre la sección de Tours y Contacto */
+}
+
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #6b775c;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-card:hover {
+  background-color: #5a664d;
+  transform: scale(1.05);
+}
+
+
+.custom-card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #8b9480;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-card1:hover {
+  background-color: #5a664d;
+  transform: scale(1.05);
+}
+
+.custom-card2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #b2b9a9;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-card2:hover {
+  background-color: #5a664d;
+  transform: scale(1.05);
+}
+
+/* Contenedor del título con imagen y texto en línea */
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre la imagen y el texto */
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.map-container {
+  width: 97%;
+  height: 300px;
+  border-radius: 30px;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 30px;
+  margin-left: 1.5%;
+}
+
+.customt-cell {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  
+}
+.header .customt-cell {
+  font-weight: bold;
+  background-color: #d5e9d608; /* Fondo blanco */
+}
+
+.custom-cell {
+  flex: 1;
+  padding: 80px;
+  text-align: center;
+  
+}
+.header .custom-cell {
+  font-weight: bold;
+  background-color: #d5e9d608; /* Fondo blanco */
+}
 
 
 
@@ -787,4 +917,46 @@ body {
     height: 300px; /* Reduce el tamaño del banner */
   }
 }
+.floating-widget {
+  position: fixed;
+  bottom: 20px;  /* Posición final en la parte inferior */
+  right: 10px;   /* Posición final en la parte derecha */
+  width: 80px;  /* Ajusta el tamaño */
+  height: 80px;
+  background-color: #22350900; /* Color de fondo */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 7px;
+  opacity: 0;
+  transform: translateY(-100vh); /* Empieza fuera de la pantalla */
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Suaviza la animación */
+}
 
+/* Animación para el efecto de caída */
+@keyframes dropWidget {
+  0% {
+      opacity: 0;
+      transform: translateY(-100vh);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+.scroll-image{
+  width: 8vh;
+  border: none;
+  outline: none;
+}
+.scroll-button{
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  border: none;
+  outline: none;
+}
