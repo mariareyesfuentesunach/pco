@@ -55,41 +55,48 @@ const imgtours = [
 
 const imgpaquetes = [
   {
-    src: "/img/cascadas.jpg",
-    title: "Cascadas De Agua Azul",
-    shortDescription: "Cascadas turquesa en Chiapas.",
-    description: "El tour a Agua Azul te lleva a cascadas turquesa rodeadas de selva, con pozas naturales para disfrutar.",
-    price: "$980.00",
-    duration: "1 Día"
-
-
-  },
-  {
-    src: "/img/cañon.jpg",
-    title: "Cañon Del Sumidero",
-    shortDescription: "Espectacular cañón con ríos y fauna.",
-    description: "Navega por este impresionante cañón con paredes de más de 1,000 metros de altura, hogar de cocodrilos, monos y aves exóticas.",
-    price: "$850.00",
-    duration: "1 Día",
+    src: "/img/AventuraChiapaneca.png",
+    title: "Aventura Chiapaneca",
+    shortDescription: "Explora lo mejor de Chiapas en una travesía llena de naturaleza y aventura",
+    description: "Lugares incluidos: Cañón del Sumidero, San Cristóbal de las Casas, Lagunas de Montebello, El Chiflón, Cascadas de Agua Azul",
+    price: "$5,500.00",
+    duration: "3 días y 2 noches",
     person: "Personas",
     max: "Maximo 10 personas",
     min: "Minimo 2 personas"
   },
   {
-    src: "/img/arco.jpg",
-    title: "El Arcote",
-    shortDescription: "Arco de roca en medio de la selva.",
-    description: "Un espectacular parque ecológico cerca de San Cristóbal de las Casas, con un imponente arco de piedra caliza, cuevas y actividades como senderismo y tirolesa.",
-    price: "$700.00",
-    duration: "1 Día"
+    src: "/img/MaravillasdeChiapas.png",
+    title: "Maravillas de Chiapas ",
+    shortDescription: "Historia, cultura y belleza natural en un recorrido inolvidable.",
+    description: "Lugares incluidos: Cañón del Sumidero, Chiapa de Corzo, El Chiflón, Lagunas de Montebello, San Cristóbal de las Casas.",
+    price: "$6500.00",
+    duration: "3 días y 2 noches",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
   },
   {
-    src: "/img/sima.jpg",
-    title: "Sima De Las Cotorras",
-    shortDescription: "Un abismo lleno de cotorras.",
-    description: "Un abismo natural con cientos de cotorras volando al amanecer.",
-    price: "$600.00",
-    duration: "1 Día"
+    src: "/img/SelvayAventura.png",
+    title: "Selva y Aventura",
+    shortDescription: "Explora la selva chiapaneca y descubre sitios arqueológicos únicos.",
+    description: "Lugares incluidos: Yaxchilán, Bonampak, Las Guacamayas, Laguna Miramar, Las Nubes.",
+    price: "$8,900.00",
+    duration: "5 días y 4 noches",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
+  },
+  {
+    src: "/img/RutadelaNaturaleza.png",
+    title: "Ruta de la Narureza",
+    shortDescription: "Conéctate con la naturaleza entre cuevas, lagunas y cascadas.",
+    description: "Lugares incluidos:El Arcotete, Grutas de Rancho Nuevo, Laguna de Metzabok, El Chiflón.",
+    price: "$9,560.00",
+    duration: "4 días y 3 noches",
+    person: "Personas",
+    max: "Maximo 10 personas",
+    min: "Minimo 2 personas"
   },
 
 
@@ -135,6 +142,52 @@ const App = () => {
     });
   };
 
+  window.addEventListener('scroll', function () {
+    const widget = document.querySelector('.floating-widget');
+  
+    // Si el usuario ha hecho scroll hacia abajo (más de 100px), mostrar el widget con animación
+    if (window.scrollY > 100) {
+      widget.style.opacity = '1';  // Muestra el widget
+      widget.style.transform = 'translateY(0)';  // Aplica la animación de caída
+    } else {
+      widget.style.opacity = '0';  // Oculta el widget cuando el usuario está en la parte superior
+      widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
+    }
+  });
+  
+  function ScrollButton() {
+    const [isBottom, setIsBottom] = useState(false);
+    const scrollRef = useRef(null);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+        setIsBottom(isAtBottom);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    const handleScrollClick = () => {
+      if (isBottom) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }
+    };
+  
+    return (
+      <button onClick={handleScrollClick} className="scroll-button">
+        <img
+          src={isBottom ? "img/scroll2.png" : "img/scroll.png"}
+          alt="Scroll Button"
+          className="scroll-image"
+        />
+      </button>
+    );
+  }
+
   return (
     <>
       {/* Contenedor del logo y la navbar */}
@@ -169,15 +222,15 @@ const App = () => {
           <img className="d-block w-100" src="/img/C2.jpg" alt="Palenque" />
           <Carousel.Caption>
             <h1 className="banner-title">Tours</h1>
-            <p className="banner-subtitle">Explora, vive y sorpréndete</p>
+            <p className="banner-subtitle">Experiencias inolvidables en los rincones más espectaculares de Chiapas</p>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img className="d-block w-100" src="/img/c8.jpg" alt="Cañón del Sumidero" />
           <Carousel.Caption>
-            <h1 className="banner-title">Chiapas Oculto</h1>
-            <p className="banner-subtitle">Aventura en cada rincón</p>
+            <h1 className="banner-title">Paquetes</h1>
+            <p className="banner-subtitle">Combinaciones perfectas para vivir Chiapas al máximo</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -232,14 +285,14 @@ const App = () => {
 
       {/* Tours */}
       <div className="single-image-tours">
-      <img src="/img/planqueb.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
+      <img src="/img/palenque.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
       <div className="tours-caption">
         <h1 className="tours-title">Zona Arqueológica Palenque</h1>
         <p className="tours-subtitle">
-          Un viaje a Palenque, Chiapas, es una experiencia inolvidable que combina historia, 
-          naturaleza y cultura en un solo destino.
+          Un viaje a Palenque, Chiapas, es una experiencia inolvidable <br></br> 
+          que combina historia, naturaleza y cultura en un solo destino.
         </p>
-        
+        <div className="line-separatort"></div>
         {/* Información del tour */}
         <div className="tours-details">
           <p><strong>Precio:</strong> $980.00</p>
@@ -276,68 +329,7 @@ const App = () => {
       </div>
 
 
-      {/* Paquetes */}
-      <div className="App">
-        {/* Sección de Paquetes */}
-        <section className="paquete-section">
-          <div className="paquete-card container">
-            <h2 className="paquete-title">Paquetes</h2>
-            <div className="paquete-content">
-              <div className="paquete-text">
-                <h3>Chiapas: Selva, Cultura y Aventura</h3>
-                <p>
-                  Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes,
-                  cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas
-                  y maravíllate con los paisajes más espectaculares del sureste mexicano.
-                </p>
-
-                <div className="line-separator"></div>
-
-                <ul className="paquete-details">
-                  <li>$980.00</li>
-                  <li>Por persona</li>
-                  <li>Minimo 2 personas</li>
-                  <li>Maximo 10 personas</li>
-                </ul>
-                <ul className="paquete-details">
-                  <li>Duración del recorrido: 1 Día</li>
-                </ul>
-              </div>
-
-              {/* Contenedor de imagen principal Paquete */}
-              <div className="paquete-image-container">
-                <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="tour-image" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Galería de Paquetes */}
-        <div className="paquete-gallery">
-          {paquetes.map((paquete, index) => (
-            <div
-              key={index}
-              className={`paquete-item ${activePaqueteIndex === index ? "active" : ""}`}
-              onClick={() => setActivePaqueteIndex(index === activePaqueteIndex ? null : index)}
-            >
-              {/* Imagen */}
-              <img src={paquete.src} alt={paquete.title} />
-
-              {/* Overlay con título */}
-              <div className="paquete-overlay">
-                <h5>{paquete.title}</h5>
-              </div>
-
-              {/* Rating Interactivo */}
-              <div className="rating">
-                <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* cuadro de tours */}
+      {/* cuadro de paquetes */}
       <div className="cuapaquetes">
         {imgpaquetes.map((img, index) => (
           <div key={index} className="cuapaquetes-item" onClick={() => setSelectedPackage(img)}>
@@ -382,6 +374,61 @@ const App = () => {
           </div>
         </div>
       )}
+
+      {/* Paquetes */}
+      <div className="App">
+        {/* Sección de Paquetes */}
+        <div className="single-image-paquete">
+      <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="paquete-image" />
+      <div className="paquete-caption">
+        <h1 className="paquete-title">Chiapas: Selva, Cultura y Aventura</h1>
+        <p className="paquete-subtitle">
+        Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes, 
+        cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas 
+        y maravíllate con los paisajes más espectaculares del sureste mexicano.
+        </p>
+        <div className="line-separator"></div>
+        {/* Información del tour */}
+        <div className="paquete-details">
+          <p><strong>Precio:</strong> $2,200.00</p>
+          <p><strong>Por persona</strong></p>
+          <p><strong>Mínimo:</strong> 2 personas</p>
+          <p><strong>Máximo:</strong> 10 personas</p>
+          <p><strong>Duración:</strong> 5 Días</p>
+        </div>
+      </div>
+    </div>
+
+        {/* Galería de Paquetes */}
+        <div className="paquete-gallery">
+          {paquetes.map((paquete, index) => (
+            <div
+              key={index}
+              className={`paquete-item ${activePaqueteIndex === index ? "active" : ""}`}
+              onClick={() => setActivePaqueteIndex(index === activePaqueteIndex ? null : index)}
+            >
+              {/* Imagen */}
+              <img src={paquete.src} alt={paquete.title} />
+
+              {/* Overlay con título */}
+              <div className="paquete-overlay">
+                <h5>{paquete.title}</h5>
+              </div>
+
+              {/* Rating Interactivo */}
+              <div className="rating">
+                <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+
+      
+
+      
     </>
   );
 };

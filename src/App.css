@@ -183,6 +183,7 @@ body {
   width: 100%;
   height: 500px; /* Ajusta la altura si es necesario */
   overflow: hidden;
+  top: 25px; /* Mueve la imagen hacia abajo */
 }
 
 .single-image-tours::before {
@@ -192,7 +193,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.305); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
+  background: rgba(0, 0, 0, 0.23); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
 }
 
 /* Imagen de fondo */
@@ -207,10 +208,10 @@ body {
 .tours-caption {
   position: absolute;
   bottom: 20%; /* Ajusta la posición vertical */
-  left: 25%;
-  top: 25%;
+  left: 26%;
+  top: 18%;
   transform: translateX(-50%);
-  text-align: center;
+  text-align: left;
   color: white;
 
   padding: 20px;
@@ -219,6 +220,14 @@ body {
   max-width: 700px;
 }
 
+/* 🎨 Línea separadora */
+.line-separatort {
+  width: 70%;
+  height: 2px;
+  background: white; /* Color con efecto degradado */
+  margin: 25px 0;
+  border-radius: 5px;
+}
 /* Estilo del título */
 .tours-title {
   font-size: 2rem;
@@ -227,7 +236,7 @@ body {
 
 /* Estilo del subtítulo */
 .tours-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 30px;
 }
 
@@ -236,105 +245,82 @@ body {
   font-size: 1rem;
   line-height: 1;
   text-align: left;
-  margin-left: 5%;
-
-
+  margin-left: 0%;
 }
+
 
 /*PAQUETE SEGUNDA FICHA*/
 /* --- Sección Paquetes --- */
-/* 🔥 Estilos de la sección de Paquetes */
-.paquete-section {
-  text-align: center;
-  padding: 0px 20px;
+.single-image-paquete {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Ajusta la altura si es necesario */
+  overflow: hidden;
+  top: 25px; /* Mueve la imagen hacia abajo */
 }
 
-/* 📌 Contenedor de la tarjeta del tour */
-.paquete-card {
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 25px;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  max-width: 1401px;
-  margin: auto;
-  margin-top: 50px; /* Espacio entre la sección de Tours y Paquetes */
+.single-image-paquete::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.456); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
 }
 
-/* 🎨 Título de la sección */
-.paquete-title {
-  font-size: 28px;
-  color: #2b3e1b;
-  margin-bottom: 30px;
-  font-size: 3.5rem;
-
+/* Imagen de fondo */
+.paquete-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* 📌 Contenedor del contenido */
-.paquete-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* 📜 Texto del paquete */
-.paquete-text {
-  flex: 1;
+/* Contenedor del texto encima de la imagen */
+.paquete-caption {
+  position: absolute;
+  bottom: 20%; /* Ajusta la posición vertical */
+  left: 26%;
+  top: 13%;
+  transform: translateX(-50%);
   text-align: left;
-  padding: 30px;
-}
+  color: white;
 
-.paquete-text h3 {
-  font-size: 24px;
-  color: #2b3e1b;
-  margin-bottom: 15px;
-  text-align: left;
-  font-size: 2.0rem;
-  padding: 5px;
-}
-
-.paquete-text p {
-  font-size: 16px;
-  color: #555;
-  font-size: 1.0rem;
-  padding: 5px;
-
-}
-
-/* 📌 Lista de detalles */
-.paquete-details {
-  list-style: none;
-  padding: 5px;
-  margin-top: 10px;
-}
-
-.paquete-details li {
-  font-size: 14px;
-  color: #444;
-  margin-bottom: 5px;
+  padding: 20px;
+  border-radius: 0px;
+  width: 1000%;
+  max-width: 700px;
 }
 
 /* 🎨 Línea separadora */
 .line-separator {
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, #2b3e1b, #6c8f4e, #2b3e1b); /* Color con efecto degradado */
-  margin: 15px 0;
+  background: white; /* Color con efecto degradado */
+  margin: 25px 0;
   border-radius: 5px;
 }
-
-/*Imagen calificaion*/
-/* 📸 Contenedor de la imagen */
-.paquete-image-container {
-  position: relative; /* Necesario para posicionar la calificación */
-  text-align: right; /* Alinea todo el contenido a la derecha */
-  padding: 20px;
-  max-width: 50%;
-  margin-top: -10px; /* Espacio hacia arriba */
-
+/* Estilo del título */
+.paquete-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
+
+/* Estilo del subtítulo */
+.paquete-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Estilo de los detalles del tour */
+.paquete-details {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: left;
+  margin-left: 0%;
+}
+
 
 /*GALERIAA*/
 
@@ -346,13 +332,14 @@ body {
   align-items: center;
   padding: 30px;
   flex-wrap: wrap;
+  margin-top: 50px; /* Espacio entre la sección de Tours y Galería */
 }
 
 /* --- Cada imagen en la galería --- */
 .gallery-item {
   position: relative;
   overflow: hidden;
-  width: 280px; /* Reducimos el ancho */
+  width: 265px; /* Reducimos el ancho */
   height: 500px; /* Aumentamos la altura */
   border-radius: 0px;
   cursor: pointer;
@@ -398,7 +385,7 @@ body {
 /* --- Texto de la imagen (nombre del destino) en la parte superior --- */
 .overlay {
   position: absolute;
-  top: 10px; /* Lo mueve a la parte superior */
+  top: 15px; /* Lo mueve a la parte superior */
   left: 50%;
   transform: translateX(-50%); /* Solo centra horizontalmente */
   color: white;
@@ -449,14 +436,14 @@ body {
 .cuatours {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
-  padding: 20px;
+  padding: 25px;
 }
 
 /* Cada cuadro */
 .cuatours-item {
-  width: 336px;
+  width: 323px;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -570,13 +557,14 @@ body {
   align-items: center;
   padding: 30px;
   flex-wrap: wrap;
+  margin-top: 50px; /* Espacio entre la sección de Tours y Galería */
 }
 
 /* --- Cada paquete en la galería --- */
 .paquete-item {
   position: relative;
   overflow: hidden;
-  width: 280px;
+  width: 265px;
   height: 500px;
   border-radius: 0px;
   cursor: pointer;
@@ -622,7 +610,7 @@ body {
 /* --- Texto de la imagen (nombre del destino) en la parte superior --- */
 .paquete-overlay {
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -653,14 +641,15 @@ body {
 .cuapaquetes {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   padding: 20px;
+  margin-top: 150px; /* Espacio entre la sección de Tours y Paquetes */
 }
 
 /* Cada cuadro */
 .cuapaquetes-item {
-  width: 336px;
+  width: 323px;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -798,3 +787,4 @@ body {
     height: 300px; /* Reduce el tamaño del banner */
   }
 }
+
