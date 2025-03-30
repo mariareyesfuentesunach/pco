@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Carousel } from "react-bootstrap";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const images = [
   { src: "/img/cascadas.jpg", title: "CASCADAS DE AGUA AZUL" },
@@ -449,7 +450,7 @@ const App = () => {
         </div>
       </div>
       </div>
-
+      {/* Contacto */} 
       <div className="custom-table" id="paquetes">
         <div className="custom-row header">
           <div className="custom-cell">
@@ -482,18 +483,18 @@ const App = () => {
         </div>
       </div>
 
-      <div className="map-container">
-      <iframe
-        title="Mapa de Tuxtla Gutiérrez"
-        width="90%"
-        height="300"
-        style={{ border: "0", borderRadius: "10px" }}
-        loading="lazy"
-        allowFullScreen
-        referrerPolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.841518029756!2d-93.11897882458397!3d16.750215984987328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd88b2c3f7f97%3A0x3dfcd387b6c94b1e!2sTuxtla%20Guti%C3%A9rrez%2C%20Chis.!5e0!3m2!1ses-419!2smx!4v1712134567890"
-      ></iframe>
-    </div>
+      {/* Mapa */}
+      <div className="map-column">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2520976260066!2d-93.1615037196592!3d16.753989542849478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd90ceaaaaaab%3A0xb2eab6edb5a1fd53!2sUnach%20Campus%201!5e1!3m2!1ses!2smx!4v1743343441879!5m2!1ses!2smx"
+              width="1350"
+              height="400"
+              style={{ border: "0" }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
     </div>
 
       <div class="floating-widget">
