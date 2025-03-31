@@ -139,12 +139,20 @@ const RatingStars = ({ rating, onRate }) => {
   );
 };
 
+
+
+
+
+
+
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activePaqueteIndex, setActivePaqueteIndex] = useState(null);
   const [imageRatings, setImageRatings] = useState(images.map(img => img.initialRating));
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedPackage, setSelectedPackage] = useState(null);
+
+
 
   const handleImageRating = (index, newRating) => {
     setImageRatings((prevRatings) => {
@@ -166,6 +174,27 @@ const App = () => {
       widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
     }
   });
+
+  //Abrir el correo de ayuda de chiapas oculto//
+  const handleEmailClick = () => {
+    window.open("https://mail.google.com/mail/?view=cm&fs=1&to=chiapasoculto.mx@gmail.com&su=Viajes&body=Quiero más información", "_blank");
+  };
+
+  //ABRIR WHATSAPP//
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '529612252444'; // Agrega el código de país si es necesario
+    const message = '¡Hola!%20Podrías%20darme%20más%20información';
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank');
+  };
+
+  //UBICACION//
+  const handleLocationClick = () => {
+    const googleMapsLink = 'https://maps.app.goo.gl/tykKyLH4pWjCx5jj8';
+    window.open(googleMapsLink, '_blank'); // Abre la ubicación en una nueva pestaña
+  };
+
+
 
   function ScrollButton() {
     const [isBottom, setIsBottom] = useState(false);
@@ -201,6 +230,8 @@ const App = () => {
   }
 
 
+
+
   return (
     <>
       {/* Contenedor del logo y la navbar */}
@@ -212,9 +243,12 @@ const App = () => {
               <ul className="navbar-nav me-auto">
                 <li className="nav-item"><a className="nav-link" href="#"></a></li>
                 <li className="nav-item"><a className="nav-link" href="#">INICIO</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">TOURS</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">PAQUETES</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">CONTACTO</a></li>
+                <li className="nav-item"><a className="nav-link" href="#Tours">TOURS</a></li>
+                <li className="nav-item"><a className="nav-link" href="#Paquetes">PAQUETES</a></li>
+                <li className="nav-item"><a className="nav-link" href="#contacto">CONTACTO</a></li>
+                <li className="nav-item"><a className="nav-link" href="#Nosotros">NOSOTROS</a></li>
+
+
               </ul>
             </div>
           </div>
@@ -256,189 +290,88 @@ const App = () => {
       <div className="customt-table" id="tours">
         <div className="customt-row header">
           <div className="customt-cell">
-            <h2><b>TOURS</b></h2>
+            <h2 id="Tours"><b>TOURS</b></h2>
           </div>
-        </div>
+        </div>
 
 
-      {/* cuadro de tours */}
-      <div className="cuatours">
-        {imgtours.map((img, index) => (
-          <div key={index} className="cuatours-item" onClick={() => setSelectedImage(img)}>
-            <div className="item-wrapper">
-              <img src={img.src} alt={img.title} />
-              <div className="item-info">
-                <h5>{img.title}</h5>
-                <p>{img.shortDescription}</p>
-                {/* Precio y Duración */}
-                <div className="tour-details">
-                  <p><strong>Precio:</strong> {img.price}</p>
-                  <p><strong>Duración:</strong> {img.duration}</p>
+        {/* cuadro de tours */}
+        <div className="cuatours">
+          {imgtours.map((img, index) => (
+            <div key={index} className="cuatours-item" onClick={() => setSelectedImage(img)}>
+              <div className="item-wrapper">
+                <img src={img.src} alt={img.title} />
+                <div className="item-info">
+                  <h5>{img.title}</h5>
+                  <p>{img.shortDescription}</p>
+                  {/* Precio y Duración */}
+                  <div className="tour-details">
+                    <p><strong>Precio:</strong> {img.price}</p>
+                    <p><strong>Duración:</strong> {img.duration}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal con fondo transparente */}
+        {selectedImage && (
+          <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
+            <div className="modal-content">
+              <img src={selectedImage.src} alt={selectedImage.title} />
+              <h3>{selectedImage.title}</h3>
+              <p>{selectedImage.description}</p>
+              {/* Precio y Duración */}
+              <div className="tour-details">
+                <p><strong>Precio:</strong> {selectedImage.price}</p>
+                <p><strong>Duración:</strong> {selectedImage.duration}</p>
+                <p><strong>Personas</strong> {selectedImage.person}</p>
+                <p><strong>Maximo:</strong> {selectedImage.max}</p>
+                <p><strong>Minimo:</strong> {selectedImage.min}</p>
+                <div className="rating">
+                  <RatingStars rating={imageRatings[imgtours.indexOf(selectedImage)]} onRate={(rating) => handleImageRating(imgtours.indexOf(selectedImage), rating)} />
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        )}
 
-      {/* Modal con fondo transparente */}
-      {selectedImage && (
-        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
-          <div className="modal-content">
-            <img src={selectedImage.src} alt={selectedImage.title} />
-            <h3>{selectedImage.title}</h3>
-            <p>{selectedImage.description}</p>
-            {/* Precio y Duración */}
-            <div className="tour-details">
-              <p><strong>Precio:</strong> {selectedImage.price}</p>
-              <p><strong>Duración:</strong> {selectedImage.duration}</p>
-              <p><strong>Personas</strong> {selectedImage.person}</p>
-              <p><strong>Maximo:</strong> {selectedImage.max}</p>
-              <p><strong>Minimo:</strong> {selectedImage.min}</p>
-              <div className="rating">
-                <RatingStars rating={imageRatings[imgtours.indexOf(selectedImage)]} onRate={(rating) => handleImageRating(imgtours.indexOf(selectedImage), rating)} />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Tours */}
-      <div className="single-image-tours">
-        <img src="/img/palenque.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
-        <div className="tours-caption">
-          <h1 className="tours-title">Zona Arqueológica Palenque</h1>
-          <p className="tours-subtitle">
-            Un viaje a Palenque, Chiapas, es una experiencia inolvidable <br></br>
-            que combina historia, naturaleza y cultura en un solo destino.
-          </p>
-          <div className="line-separatort"></div>
-          {/* Información del tour */}
-          <div className="tours-details">
-            <p><strong>Precio:</strong> $980.00</p>
-            <p><strong>Por persona</strong></p>
-            <p><strong>Mínimo:</strong> 2 personas</p>
-            <p><strong>Máximo:</strong> 10 personas</p>
-            <p><strong>Duración:</strong> 1 Día</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Galería de Imágenes */}
-      <div className="gallery">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`gallery-item ${activeIndex === index ? "active" : ""}`}
-            onClick={() => setActiveIndex(index === activeIndex ? null : index)}
-          >
-            {/* Imagen */}
-            <img src={image.src} alt={image.title} />
-
-            {/* Overlay con título */}
-            <div className="overlay">
-              <h5>{image.title}</h5>
-            </div>
-
-            {/* Rating Interactivo */}
-            <div className="rating">
-              <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
-            </div>
-          </div>
-        ))}
-      </div>
-      </div>
-
-      <div className="custom-table" id="paquetes">
-        <div className="custom-row header">
-          <div className="custom-cell">
-            <h2><b>PAQUETES</b></h2>
-          </div>
-        </div>
-      {/* cuadro de paquetes */}
-      <div className="cuapaquetes">
-        {imgpaquetes.map((img, index) => (
-          <div key={index} className="cuapaquetes-item" onClick={() => setSelectedPackage(img)}>
-            <div className="item-wrapper">
-              <img src={img.src} alt={img.title} />
-              <div className="item-info">
-                <h5>{img.title}</h5>
-                <p>{img.shortDescription}</p>
-                {/* Precio y Duración */}
-                <div className="package-details">
-                  <p><strong>Precio:</strong> {img.price}</p>
-                  <p><strong>Duración:</strong> {img.duration}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal con fondo transparente */}
-      {selectedPackage && (
-        <div className="modal-overlay" onClick={() => setSelectedPackage(null)}>
-          <div className="modal-content">
-            <img src={selectedPackage.src} alt={selectedPackage.title} />
-            <h3>{selectedPackage.title}</h3>
-            <p>{selectedPackage.description}</p>
-            {/* Precio y Duración */}
-            <div className="package-details">
-              <p><strong>Precio:</strong> {selectedPackage.price}</p>
-              <p><strong>Duración:</strong> {selectedPackage.duration}</p>
-              <p><strong>Personas:</strong> {selectedPackage.person}</p>
-              <p><strong>Máximo:</strong> {selectedPackage.max}</p>
-              <p><strong>Mínimo:</strong> {selectedPackage.min}</p>
-              {/* Rating */}
-              <div className="rating">
-                <RatingStars
-                  rating={imageRatings[imgpaquetes.indexOf(selectedPackage)]}
-                  onRate={(rating) => handleImageRating(imgpaquetes.indexOf(selectedPackage), rating)}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Paquetes */}
-      <div className="App">
-        {/* Sección de Paquetes */}
-        <div className="single-image-paquete">
-          <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="paquete-image" />
-          <div className="paquete-caption">
-            <h1 className="paquete-title">Chiapas: Selva, Cultura y Aventura</h1>
-            <p className="paquete-subtitle">
-              Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes,
-              cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas
-              y maravíllate con los paisajes más espectaculares del sureste mexicano.
+        {/* Tours */}
+        <div className="single-image-tours">
+          <img src="/img/palenque.jpg" alt="Zona Arqueológica Palenque" className="tours-image" />
+          <div className="tours-caption">
+            <h1 className="tours-title">Zona Arqueológica Palenque</h1>
+            <p className="tours-subtitle">
+              Un viaje a Palenque, Chiapas, es una experiencia inolvidable <br></br>
+              que combina historia, naturaleza y cultura en un solo destino.
             </p>
-            <div className="line-separator"></div>
+            <div className="line-separatort"></div>
             {/* Información del tour */}
-            <div className="paquete-details">
-              <p><strong>Precio:</strong> $2,200.00</p>
+            <div className="tours-details">
+              <p><strong>Precio:</strong> $980.00</p>
               <p><strong>Por persona</strong></p>
               <p><strong>Mínimo:</strong> 2 personas</p>
               <p><strong>Máximo:</strong> 10 personas</p>
-              <p><strong>Duración:</strong> 5 Días</p>
+              <p><strong>Duración:</strong> 1 Día</p>
             </div>
           </div>
         </div>
 
-        {/* Galería de Paquetes */}
-        <div className="paquete-gallery">
-          {paquetes.map((paquete, index) => (
+        {/* Galería de Imágenes */}
+        <div className="gallery">
+          {images.map((image, index) => (
             <div
               key={index}
-              className={`paquete-item ${activePaqueteIndex === index ? "active" : ""}`}
-              onClick={() => setActivePaqueteIndex(index === activePaqueteIndex ? null : index)}
+              className={`gallery-item ${activeIndex === index ? "active" : ""}`}
+              onClick={() => setActiveIndex(index === activeIndex ? null : index)}
             >
               {/* Imagen */}
-              <img src={paquete.src} alt={paquete.title} />
+              <img src={image.src} alt={image.title} />
 
               {/* Overlay con título */}
-              <div className="paquete-overlay">
-                <h5>{paquete.title}</h5>
+              <div className="overlay">
+                <h5>{image.title}</h5>
               </div>
 
               {/* Rating Interactivo */}
@@ -449,61 +382,305 @@ const App = () => {
           ))}
         </div>
       </div>
-      </div>
-      {/* Contacto */} 
+
       <div className="custom-table" id="paquetes">
         <div className="custom-row header">
           <div className="custom-cell">
-            <h2><b>CONTACTO</b></h2>
+            <h2 id="Paquetes"><b>PAQUETES</b></h2>
           </div>
-        </div>
-      <div className="card-container">
-        <div className="custom-card">
-          <div className="title-container">
-            <img src="/img/phone-call.png" alt="Phone" className="icon" />
-            <h5>Teléfono</h5>
-          </div>
-          <p>961 470 6290</p>
+        </div>
+        {/* cuadro de paquetes */}
+        <div className="cuapaquetes">
+          {imgpaquetes.map((img, index) => (
+            <div key={index} className="cuapaquetes-item" onClick={() => setSelectedPackage(img)}>
+              <div className="item-wrapper">
+                <img src={img.src} alt={img.title} />
+                <div className="item-info">
+                  <h5>{img.title}</h5>
+                  <p>{img.shortDescription}</p>
+                  {/* Precio y Duración */}
+                  <div className="package-details">
+                    <p><strong>Precio:</strong> {img.price}</p>
+                    <p><strong>Duración:</strong> {img.duration}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="custom-card1">
-          <div className="title-container">
-            <img src="/email-icon.png" alt="Email" className="icon" />
-            <h5>Correo Electrónico</h5>
+        {/* Modal con fondo transparente */}
+        {selectedPackage && (
+          <div className="modal-overlay" onClick={() => setSelectedPackage(null)}>
+            <div className="modal-content">
+              <img src={selectedPackage.src} alt={selectedPackage.title} />
+              <h3>{selectedPackage.title}</h3>
+              <p>{selectedPackage.description}</p>
+              {/* Precio y Duración */}
+              <div className="package-details">
+                <p><strong>Precio:</strong> {selectedPackage.price}</p>
+                <p><strong>Duración:</strong> {selectedPackage.duration}</p>
+                <p><strong>Personas:</strong> {selectedPackage.person}</p>
+                <p><strong>Máximo:</strong> {selectedPackage.max}</p>
+                <p><strong>Mínimo:</strong> {selectedPackage.min}</p>
+                {/* Rating */}
+                <div className="rating">
+                  <RatingStars
+                    rating={imageRatings[imgpaquetes.indexOf(selectedPackage)]}
+                    onRate={(rating) => handleImageRating(imgpaquetes.indexOf(selectedPackage), rating)}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <p>chiapasoculto.com</p>
-        </div>
+        )}
 
-        <div className="custom-card2">
-          <div className="title-container">
-            <img src="/location-icon.png" alt="Location" className="icon" />
-            <h5>Localización</h5>
+        {/* Paquetes */}
+        <div className="App">
+          {/* Sección de Paquetes */}
+          <div className="single-image-paquete">
+            <img src="/img/Paquete.png" alt="Zona Arqueológica Palenque" className="paquete-image" />
+            <div className="paquete-caption">
+              <h1 className="paquete-title">Chiapas: Selva, Cultura y Aventura</h1>
+              <p className="paquete-subtitle">
+                Descubre la esencia de Chiapas en un viaje lleno de naturaleza, historia y tradición. Recorre cañones imponentes,
+                cascadas cristalinas y antiguas ciudades mayas ocultas en la selva. Sumérgete en la cultura de los pueblos indígenas
+                y maravíllate con los paisajes más espectaculares del sureste mexicano.
+              </p>
+              <div className="line-separator"></div>
+              {/* Información del tour */}
+              <div className="paquete-details">
+                <p><strong>Precio:</strong> $2,200.00</p>
+                <p><strong>Por persona</strong></p>
+                <p><strong>Mínimo:</strong> 2 personas</p>
+                <p><strong>Máximo:</strong> 10 personas</p>
+                <p><strong>Duración:</strong> 5 Días</p>
+              </div>
+            </div>
           </div>
-          <p>Tuxtla Gutiérrez, Chiapas</p>
+
+          {/* Galería de Paquetes */}
+          <div className="paquete-gallery">
+            {paquetes.map((paquete, index) => (
+              <div
+                key={index}
+                className={`paquete-item ${activePaqueteIndex === index ? "active" : ""}`}
+                onClick={() => setActivePaqueteIndex(index === activePaqueteIndex ? null : index)}
+              >
+                {/* Imagen */}
+                <img src={paquete.src} alt={paquete.title} />
+
+                {/* Overlay con título */}
+                <div className="paquete-overlay">
+                  <h5>{paquete.title}</h5>
+                </div>
+
+                {/* Rating Interactivo */}
+                <div className="rating">
+                  <RatingStars rating={imageRatings[index]} onRate={(rating) => handleImageRating(index, rating)} />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Mapa */}
-      <div className="map-column">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2520976260066!2d-93.1615037196592!3d16.753989542849478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd90ceaaaaaab%3A0xb2eab6edb5a1fd53!2sUnach%20Campus%201!5e1!3m2!1ses!2smx!4v1743343441879!5m2!1ses!2smx"
-              width="1350"
-              height="400"
-              style={{ border: "0" }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+      {/* Contacto */}
+      <div className="custom-table" id="paquetes">
+        <div className="custom-row header">
+          <div className="custom-cell">
+            <h2 id="contacto"><b>CONTACTO</b></h2>
           </div>
-    </div>
+        </div>
+
+        <div className="card-container" onClick={handleWhatsAppClick} style={{ cursor: 'pointer' }}>
+          <div className="custom-card">
+            <div className="title-container">
+              <img src="/img/phone-call.png" alt="Phone" className="icon" />
+              <h5>Teléfono</h5>
+            </div>
+            <p>961 225 2444</p>
+          </div>
+
+          <div className="custom-card1" onClick={handleEmailClick} style={{ cursor: 'pointer' }}>
+            <div className="title-container">
+              <img src="/img/mail.png" alt="Email" className="icon" />
+              <h5>Correo Electrónico</h5>
+            </div>
+            <p>chiapasoculto.mx@gmail.com</p>
+          </div>
+
+
+
+          <div className="custom-card2" onClick={handleLocationClick} style={{ cursor: 'pointer' }}>
+            <div className="title-container">
+              <img src="/img/ubi.png" alt="Location" className="icon" />
+              <h5>Localización</h5>
+            </div>
+            <p>Tuxtla Gutiérrez, Chiapas</p>
+          </div>
+        </div>
+
+        {/* Mapa */}
+        <div className="map-column">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2520976260066!2d-93.1615037196592!3d16.753989542849478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd90ceaaaaaab%3A0xb2eab6edb5a1fd53!2sUnach%20Campus%201!5e1!3m2!1ses!2smx!4v1743343441879!5m2!1ses!2smx"
+            width="1350"
+            height="400"
+            style={{ border: "0" }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
 
       <div class="floating-widget">
         <ScrollButton />
       </div>
+
+
+
+      {/* Nosotros */}
+      <div className="nosotros-container">
+
+
+        <h1 className="title" id="Nosotros">Nosotros</h1>
+
+        <div className="section hover-animation">
+          <div className="text-container">
+            <h5 className="titulos">Misión</h5>
+            <p>
+              Brindar a nuestros clientes experiencias inolvidables al descubrir
+              los tesoros ocultos de Chiapas, con servicios de alta calidad y
+              guiados por expertos locales. Nos comprometemos a proteger el
+              patrimonio cultural y natural, fomentar la economía local y
+              garantizar que cada viaje contribuya al desarrollo sostenible de
+              las comunidades que visitamos.
+            </p>
+          </div>
+
+          <div key={1} className="cuapaquetes-item">
+            <img src="/img/mision.png" alt="Misión" className="image" />
+          </div>
+        </div>
+
+        <div className="section reverse hover-animation">
+          <div key={2} className="cuapaquetes-item">
+            <img src="/img/vision.png" alt="Visión" className="image" />
+          </div>
+
+          <div className="text-container">
+            <h5 className="titulos">Visión</h5>
+            <p>
+              Ser la agencia de viajes líder en ofrecer experiencias auténticas y
+              personalizadas en los rincones más desconocidos y mágicos de
+              Chiapas, conectando a los viajeros con la riqueza natural, cultural
+              y ancestral de la región, y promoviendo el turismo responsable y
+              sostenible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      {/* pie de pagina */}
+      <footer className="footer-container">
+        <div className="footer-content">
+          {/* Contenedor izquierdo (Redes y logo) */}
+          <div className="left-section">
+            <div className="social-box">
+              <h6>Redes Sociales</h6>
+              <div className="social-item">
+                <img src="/img/facebook.png" alt="Facebook" className="icon" />
+                <p className="redes">Chiapas Oculto</p>
+              </div>
+              <div className="social-item">
+                <img src="/img/insta.png" alt="Instagram" className="icon" />
+                <p className="redes">@ChiapasOculto</p>
+              </div>
+              <div className="social-item">
+                <img src="/img/whatss.png" alt="WhatsApp" className="icon" />
+                <p className="redes">Resolver tus dudas</p>
+              </div>
+            </div>
+
+            <div className="logo-box">
+              <img src="/img/logoc.png" alt="Avión" className="plane-icon" />
+            </div>
+          </div>
+
+          {/* Contenedor derecho (Información en cuadro morado) */}
+          <div className="info-box">
+            <div className="info-content">
+              <h6>Servicio al cliente</h6>
+              <p>Contacto</p>
+              <p>Mi cuenta</p>
+            </div>
+            <div className="info-content">
+              <h6>Tours destacados</h6>
+              <p>El Arcote.</p>
+              <p>Lagunas de Montebello.</p>
+              <p>Zona Arqueológica De Palenque.</p>
+              <p>Zona Arqueológica De Tonina.</p>
+            </div>
+            <div className="info-content">
+              <h6>Paquetes destacados</h6>
+              <p>Arqueología y Selva.</p>
+              <p>Paraíso en la Selva.</p>
+              <p>Expedición Chiapaneca.</p>
+              <p>Rutas Mágicas de Chiapas.</p>
+
+            </div>
+
+            <table className="ubicacion">
+              <tr>
+                <td> <img src="/img/ubi.png" className="ubi" />
+
+                </td>
+                <td> <a> </a> <p>Ver Ubicacion</p></td>
+              </tr>
+            </table>
+
+
+
+          </div>
+
+        </div>
+
+
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </>
   );
 };
 
 export default App;
+
 

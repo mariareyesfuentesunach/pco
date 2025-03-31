@@ -958,3 +958,197 @@ p {
   border: none;
   outline: none;
 }
+
+
+
+/*NOSOTRos*/
+.nosotros-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #F0F0E3; /* Fondo general */
+}
+
+.title {
+  font-size: 3.5em;
+  margin-bottom: 30px;
+  color: #060606;
+  text-align: center;
+  font-weight: bold;
+}
+
+.titulos
+{
+  font-size: 2.3em;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-align: center;
+
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #5f6f4a; /* Fondo verde más oscuro */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  min-height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.section .text-container {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  background: none; /* Elimina el fondo individual del texto */
+  border-radius: 10px;
+}
+
+.image {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Asegura que la imagen de Misión esté a la derecha y la de Visión a la izquierda */
+.section img {
+  order: 2;
+}
+
+.section.reverse img {
+  order: 9;
+}
+.hover-animation {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-animation:hover {
+  transform: scale(1.1);
+}
+
+
+/*PIE DE PAGINA*/
+
+/*PIE DE PAGINA*/
+.footer-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 55px;
+  width: 90%;
+  margin: auto;
+  box-shadow: #000000;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+
+/* Sección izquierda (Redes + Logo) */
+.left-section {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.redes{
+  font-size: 19px;
+
+}
+
+.social-box {
+  background-color: #F0F0E3;
+  padding: 10px; /* Reducir el espacio interno */
+  border-radius: 15px;
+  width: 500px; /* Ajustar el ancho */
+  font-size: 19px; /* Hacer la fuente más pequeña */
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.plane-icon {
+  width: 500px;  /* La imagen ocupará todo el ancho del contenedor */
+  height: 200px; /* La imagen ocupará todo el alto del contenedor */
+  transition: transform 0.3s ease-in-out; /* Agrega una animación suave */
+}
+
+h6 {
+  color: #223509;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  
+}
+
+
+.plane-icon:hover {
+  transform: scale(1.2); /* Hace la imagen más grande al pasar el cursor */
+  z-index: 1; /* Asegura que la imagen se muestre encima del contenedor cuando se amplía */
+}
+
+
+.logo-box {
+  background-color: #F0F0E3; /* Fondo amarillo */
+  padding: 0;  /* Elimina el padding para asegurar que ocupe todo el espacio */
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;  /* Ajustar el ancho */
+  height: 200px; /* Ajustar la altura */
+}
+
+
+.social-item {
+  display: flex;
+  align-items: center;
+
+}
+
+.icon {
+  width: 30px;
+  margin-right: 10px;
+}
+
+/* Sección derecha (Información) */
+.info-box {
+  background-color: #F0F0E3;
+  padding: 15px;
+  border-radius: 10px;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+  color: #010101;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.ubicacion {
+  position: relative;
+  right: 680px;
+  margin-top: 250px;
+
+}
+
+.ubi{
+  width: 40px;
+}
