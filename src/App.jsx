@@ -587,17 +587,47 @@ const App = () => {
             <div className="social-box">
               <h6>Redes Sociales</h6>
               <div className="social-item">
-                <img src="/img/facebook.png" alt="Facebook" className="icon" />
+                <a
+                  href="https://www.facebook.com/profile.php?id=61574799724141"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <img src="/img/facebook.png" alt="Facebook" className="icon" />
+
+                </a>
                 <p className="redes">Chiapas Oculto</p>
               </div>
+
+
+
               <div className="social-item">
-                <img src="/img/insta.png" alt="Instagram" className="icon" />
-                <p className="redes">@ChiapasOculto</p>
+                <a
+                  href="https://www.instagram.com/chiapas_oculto/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <img src="/img/insta.png" alt="Instagram" className="icon" />
+                </a>
+                <a
+                  href="https://www.instagram.com/chiapas_oculto/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <p className="redes">@ChiapasOculto</p>
+
+                </a>
               </div>
-              <div className="social-item">
-                <img src="/img/whatss.png" alt="WhatsApp" className="icon" />
-                <p className="redes">Resolver tus dudas</p>
+
+              <div className="whatsapp-container" onClick={handleWhatsAppClick}>
+                <img src="/img/whatss.png" alt="WhatsApp" className="whatsapp-icon" />
+                <p className="whatsapp-text">Resolver tus dudas</p>
               </div>
+
+
+
             </div>
 
             <div className="logo-box">

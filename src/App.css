@@ -1036,6 +1036,8 @@ p {
 /*PIE DE PAGINA*/
 
 /*PIE DE PAGINA*/
+
+
 .footer-container {
   background-color: #ffffff;
   padding: 20px;
@@ -1058,6 +1060,13 @@ p {
   display: flex;
   flex-direction: column;
   width: 35%;
+}
+h6{
+  color: #223509;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+
 }
 
 .redes{
@@ -1163,4 +1172,29 @@ p {
 
 .ubi{
   width: 40px;
+}
+
+
+.whatsapp-container {
+  display: flex;
+  align-items: center; /* Alinea la imagen y el texto en la misma línea */
+  gap: 8px; /* Espacio entre la imagen y el texto */
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: fit-content; /* Se ajusta al contenido */
+}
+
+
+
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.whatsapp-text {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  margin: 0; /* Evita que el texto tenga márgenes extra */
 }
