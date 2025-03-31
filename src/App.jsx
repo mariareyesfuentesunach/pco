@@ -282,10 +282,7 @@ const App = () => {
         </Carousel.Item>
       </Carousel>
 
-      {/* Botón Nosotros */}
-      <div className="text-center mt-4">
-        <button className="btn btn-success big-button">Nosotros</button>
-      </div>
+      
 
       <div className="customt-table" id="tours">
         <div className="customt-row header">
