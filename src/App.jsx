@@ -539,14 +539,9 @@ const App = () => {
         <ScrollButton />
       </div>
 
-
-
       {/* Nosotros */}
       <div className="nosotros-container">
-
-
         <h1 className="title" id="Nosotros">Nosotros</h1>
-
         <div className="section hover-animation">
           <div className="text-container">
             <h5 className="titulos">Misión</h5>
@@ -587,7 +582,7 @@ const App = () => {
       {/* pie de pagina */}
       <footer className="footer-container">
         <div className="footer-content">
-          {/* Contenedor izquierdo (Redes y logo) */}
+          {/*Redes y logo) */}
           <div className="left-section">
             <div className="social-box">
               <h6>Redes Sociales</h6>
@@ -610,71 +605,61 @@ const App = () => {
             </div>
           </div>
 
-          {/* Contenedor derecho (Información en cuadro morado) */}
+          {/* Contenedor */}
           <div className="info-box">
             <div className="info-content">
               <h6>Servicio al cliente</h6>
-              <p>Contacto</p>
-              <p>Mi cuenta</p>
+              <p className="info-text">Contacto</p>
+              <p className="info-text">Mi cuenta</p>
             </div>
             <div className="info-content">
               <h6>Tours destacados</h6>
-              <p>El Arcote.</p>
-              <p>Lagunas de Montebello.</p>
-              <p>Zona Arqueológica De Palenque.</p>
-              <p>Zona Arqueológica De Tonina.</p>
+              <p className="info-text">El Arcote.</p>
+              <p className="info-text">Lagunas de Montebello.</p>
+              <p className="info-text">Zona Arqueológica De Palenque.</p>
+              <p className="info-text">Zona Arqueológica De Tonina.</p>
             </div>
             <div className="info-content">
               <h6>Paquetes destacados</h6>
-              <p>Arqueología y Selva.</p>
-              <p>Paraíso en la Selva.</p>
-              <p>Expedición Chiapaneca.</p>
-              <p>Rutas Mágicas de Chiapas.</p>
-
+              <p className="info-text">Arqueología y Selva.</p>
+              <p className="info-text">Paraíso en la Selva.</p>
+              <p className="info-text">Expedición Chiapaneca.</p>
+              <p className="info-text">Rutas Mágicas de Chiapas.</p>
             </div>
 
+
+
             <table className="ubicacion">
-              <tr>
-                <td> <img src="/img/ubi.png" className="ubi" />
+              <tbody>
+                <tr>
+                  <td>
+                    <a
+                      href="https://maps.app.goo.gl/j5ufmUNDSNJDuiNN9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      <img src="/img/ubi.png" className="ubi" alt="Ubicación" />
 
-                </td>
-                <td> <a> </a> <p>Ver Ubicacion</p></td>
-              </tr>
+                    </a>
+                  </td>
+
+                  <td>
+                    <a
+                      href="https://maps.app.goo.gl/j5ufmUNDSNJDuiNN9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                      <p>Ver Ubicación</p>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
             </table>
-
-
-
           </div>
-
         </div>
-
-
       </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </>

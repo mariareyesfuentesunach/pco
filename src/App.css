@@ -1080,13 +1080,6 @@ p {
   transition: transform 0.3s ease-in-out; /* Agrega una animación suave */
 }
 
-h6 {
-  color: #223509;
-  font-size: 20px;
-  margin-bottom: 10px;
-  text-align: center;
-  
-}
 
 
 .plane-icon:hover {
@@ -1129,6 +1122,25 @@ h6 {
   display: flex;
   justify-content: space-between;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.info-content{
+  color: #000000;
+}
+
+.info-text {
+  display: block; 
+  font-size: 16px; 
+  color: #000000;
+  margin: 5px 0; 
+  line-height: 1.5; 
+}
+
+.info-content h6 {
+  margin-bottom: 20px; /* Espacio pequeño entre h6 y los párrafos */
+  font-size: 20px;
+  font-weight: bold;
+  color: #223509;
 }
 
 h4 {
