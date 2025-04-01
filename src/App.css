@@ -84,9 +84,8 @@ body {
 
 /*Carrusel de imagenes*/
 .carousel-container {
-  width: 100%; /* Ajusta el ancho del carrusel */
+  width: 98.3%; /* Ajusta el ancho del carrusel */
   max-width: 2000px; /* Ajusta según el diseño */
-  margin: auto;
   height: 600px; /* Altura fija del carrusel */
   overflow: hidden;
   top: -60px;
@@ -191,14 +190,14 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 98.3%;
   height: 100%;
   background: rgba(0, 0, 0, 0.23); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
 }
 
 /* Imagen de fondo */
 .tours-image {
-  width: 100%;
+  width: 98.3%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -264,14 +263,14 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 98.3%;
   height: 100%;
   background: rgba(0, 0, 0, 0.456); /* Ajusta la opacidad (0.5 = 50% de oscurecimiento) */
 }
 
 /* Imagen de fondo */
 .paquete-image {
-  width: 100%;
+  width: 98.3%;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -756,10 +755,11 @@ body {
   display: flex;
   justify-content: center;
   gap: 60px;
-  background-color: #f5f5e6;
+  background-color: #F0F0E3;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   text-align: center;
+  width: 98.3%;
   margin-top: -70px; /* Espacio entre la sección de Tours y Contacto */
 }
 
@@ -966,6 +966,7 @@ p {
   text-align: center;
   padding: 40px;
   background-color: #F0F0E3; /* Fondo general */
+  width: 98.3%;
 }
 
 .title {
@@ -982,6 +983,7 @@ p {
   margin-bottom: 30px;
   color: #ffffff;
   text-align: center;
+  
 
 }
 
