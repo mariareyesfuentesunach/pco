@@ -139,12 +139,6 @@ const RatingStars = ({ rating, onRate }) => {
   );
 };
 
-
-
-
-
-
-
 const App = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activePaqueteIndex, setActivePaqueteIndex] = useState(null);
@@ -183,7 +177,7 @@ const App = () => {
   //ABRIR WHATSAPP//
   const handleWhatsAppClick = () => {
     const phoneNumber = '529612252444'; // Agrega el código de país si es necesario
-    const message = '¡Hola!%20Podrías%20darme%20más%20información';
+    const message = '¡Hola!%20Podrías%20darme%20más%20información....';
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, '_blank');
   };
@@ -196,39 +190,40 @@ const App = () => {
 
 
 
-  function ScrollButton() {
-    const [isBottom, setIsBottom] = useState(false);
-    const scrollRef = useRef(null);
+// Detectar cuando el usuario hace scroll hacia abajo o hacia arriba
+window.addEventListener('scroll', function () {
+  const widget = document.querySelector('.floating-widget');
 
-    useEffect(() => {
-      const handleScroll = () => {
-        const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
-        setIsBottom(isAtBottom);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const handleScrollClick = () => {
-      if (isBottom) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      }
-    };
-
-    return (
-      <button onClick={handleScrollClick} className="scroll-button">
-        <img
-          src={isBottom ? "img/avi.png" : "img/avi.png"}
-          alt="Scroll Button"
-          className="scroll-image"
-        />
-      </button>
-    );
+  // Solo permite mostrar el widget si el usuario está subiendo
+  if (window.scrollY > 100) {
+    widget.style.opacity = '1';  // Muestra el widget
+    widget.style.transform = 'translateY(0)';  // Aplica la animación de caída
+  } else {
+    widget.style.opacity = '0';  // Oculta el widget
+    widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
   }
 
+  // Evita el scroll hacia abajo
+  if (window.oldScroll < window.scrollY) {
+    window.scrollTo(0, window.oldScroll);
+  }
+
+  window.oldScroll = window.scrollY; // Guarda la posición actual
+});
+
+function ScrollButton() {
+  const scrollRef = useRef(null);
+
+  const handleScrollClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Solo sube, nunca baja
+  };
+
+  return (
+    <button onClick={handleScrollClick} className="scroll-button">
+      <img src="img/avi.png" alt="Scroll Button" className="scroll-image" />
+    </button>
+  );
+}
 
 
 
@@ -532,10 +527,6 @@ const App = () => {
         </div>
       </div>
 
-      <div class="floating-widget">
-        <ScrollButton />
-      </div>
-
       {/* Nosotros */}
       <div className="nosotros-container">
         <h1 className="title" id="Nosotros">Nosotros</h1>
@@ -624,6 +615,8 @@ const App = () => {
               </div>
 
 
+              
+
 
             </div>
 
@@ -687,7 +680,10 @@ const App = () => {
           </div>
         </div>
       </footer>
-
+      
+      <div class="floating-widget">
+        <ScrollButton />
+      </div>
 
     </>
   );
