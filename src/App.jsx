@@ -59,7 +59,6 @@ const imgtours = [
     min: "Minimo 2 personas"
   },
 
-
 ];
 
 const imgpaquetes = [
@@ -108,7 +107,6 @@ const imgpaquetes = [
     min: "Minimo 2 personas"
   },
 
-
 ];
 
 const paquetes = [
@@ -145,7 +143,6 @@ const App = () => {
   const [imageRatings, setImageRatings] = useState(images.map(img => img.initialRating));
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedPackage, setSelectedPackage] = useState(null);
-
 
 
   const handleImageRating = (index, newRating) => {
@@ -189,7 +186,6 @@ const App = () => {
   };
 
 
-
 // Detectar cuando el usuario hace scroll hacia abajo o hacia arriba
 window.addEventListener('scroll', function () {
   const widget = document.querySelector('.floating-widget');
@@ -226,7 +222,6 @@ function ScrollButton() {
 }
 
 
-
   return (
     <>
       {/* Contenedor del logo y la navbar */}
@@ -242,7 +237,6 @@ function ScrollButton() {
                 <li className="nav-item"><a className="nav-link" href="#Paquetes">PAQUETES</a></li>
                 <li className="nav-item"><a className="nav-link" href="#contacto">CONTACTO</a></li>
                 <li className="nav-item"><a className="nav-link" href="#Nosotros">NOSOTROS</a></li>
-
 
               </ul>
             </div>
@@ -285,7 +279,6 @@ function ScrollButton() {
             <h2 id="Tours"><b>TOURS</b></h2>
           </div>
         </div>
-
 
         {/* cuadro de tours */}
         <div className="cuatours">
@@ -503,7 +496,6 @@ function ScrollButton() {
           </div>
 
 
-
           <div className="custom-card2" onClick={handleLocationClick} style={{ cursor: 'pointer' }}>
             <div className="title-container">
               <img src="/img/ubi.png" alt="Location" className="icon" />
@@ -566,7 +558,6 @@ function ScrollButton() {
         </div>
       </div>
 
-
       {/* pie de pagina */}
       <footer className="footer-container">
         <div className="footer-content">
@@ -586,7 +577,6 @@ function ScrollButton() {
                 </a>
                 <p className="redes">Chiapas Oculto</p>
               </div>
-
 
 
               <div className="social-item">
@@ -614,9 +604,7 @@ function ScrollButton() {
                 <p className="whatsapp-text">Resolver tus dudas</p>
               </div>
 
-
               
-
 
             </div>
 
@@ -646,7 +634,6 @@ function ScrollButton() {
               <p className="info-text">Expedición Chiapaneca.</p>
               <p className="info-text">Rutas Mágicas de Chiapas.</p>
             </div>
-
 
 
             <table className="ubicacion">
@@ -690,5 +677,3 @@ function ScrollButton() {
 };
 
 export default App;
-
-
