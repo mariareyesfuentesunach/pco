@@ -200,41 +200,6 @@ function ScrollButton() {
   };
 
 
-// Detectar cuando el usuario hace scroll hacia abajo o hacia arriba
-window.addEventListener('scroll', function () {
-  const widget = document.querySelector('.floating-widget');
-
-  // Solo permite mostrar el widget si el usuario está subiendo
-  if (window.scrollY > 100) {
-    widget.style.opacity = '1';  // Muestra el widget
-    widget.style.transform = 'translateY(0)';  // Aplica la animación de caída
-  } else {
-    widget.style.opacity = '0';  // Oculta el widget
-    widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
-  }
-
-  // Evita el scroll hacia abajo
-  if (window.oldScroll < window.scrollY) {
-    window.scrollTo(0, window.oldScroll);
-  }
-
-  window.oldScroll = window.scrollY; // Guarda la posición actual
-});
-
-function ScrollButton() {
-  const scrollRef = useRef(null);
-
-  const handleScrollClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Solo sube, nunca baja
-  };
-
-  return (
-    <button onClick={handleScrollClick} className="scroll-button">
-      <img src="img/avi.png" alt="Scroll Button" className="scroll-image" />
-    </button>
-  );
-}
-
 
   return (
     <>
