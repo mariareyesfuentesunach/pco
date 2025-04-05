@@ -59,7 +59,6 @@ const imgtours = [
     min: "Minimo 2 personas"
   },
 
-
 ];
 
 const imgpaquetes = [
@@ -108,7 +107,6 @@ const imgpaquetes = [
     min: "Minimo 2 personas"
   },
 
-
 ];
 
 const paquetes = [
@@ -145,7 +143,6 @@ const App = () => {
   const [imageRatings, setImageRatings] = useState(images.map(img => img.initialRating));
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedPackage, setSelectedPackage] = useState(null);
-
 
 
   const handleImageRating = (index, newRating) => {
@@ -203,6 +200,42 @@ function ScrollButton() {
   };
 
 
+// Detectar cuando el usuario hace scroll hacia abajo o hacia arriba
+window.addEventListener('scroll', function () {
+  const widget = document.querySelector('.floating-widget');
+
+  // Solo permite mostrar el widget si el usuario está subiendo
+  if (window.scrollY > 100) {
+    widget.style.opacity = '1';  // Muestra el widget
+    widget.style.transform = 'translateY(0)';  // Aplica la animación de caída
+  } else {
+    widget.style.opacity = '0';  // Oculta el widget
+    widget.style.transform = 'translateY(-120vh)';  // Hace que el widget desaparezca hacia arriba
+  }
+
+  // Evita el scroll hacia abajo
+  if (window.oldScroll < window.scrollY) {
+    window.scrollTo(0, window.oldScroll);
+  }
+
+  window.oldScroll = window.scrollY; // Guarda la posición actual
+});
+
+function ScrollButton() {
+  const scrollRef = useRef(null);
+
+  const handleScrollClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Solo sube, nunca baja
+  };
+
+  return (
+    <button onClick={handleScrollClick} className="scroll-button">
+      <img src="img/avi.png" alt="Scroll Button" className="scroll-image" />
+    </button>
+  );
+}
+
+
   return (
     <>
       {/* Contenedor del logo y la navbar */}
@@ -218,7 +251,6 @@ function ScrollButton() {
                 <li className="nav-item"><a className="nav-link" href="#paquetes">PAQUETES</a></li>
                 <li className="nav-item"><a className="nav-link" href="#contacto">CONTACTO</a></li>
                 <li className="nav-item"><a className="nav-link" href="#Nosotros">NOSOTROS</a></li>
-
 
               </ul>
             </div>
@@ -261,7 +293,6 @@ function ScrollButton() {
             <h2 id="Tours"><b>TOURS</b></h2>
           </div>
         </div>
-
 
         {/* cuadro de tours */}
         <div className="cuatours">
@@ -479,7 +510,6 @@ function ScrollButton() {
           </div>
 
 
-
           <div className="custom-card2" onClick={handleLocationClick} style={{ cursor: 'pointer' }}>
             <div className="title-container">
               <img src="/img/ubi.png" alt="Location" className="icon" />
@@ -542,7 +572,6 @@ function ScrollButton() {
         </div>
       </div>
 
-
       {/* pie de pagina */}
       <footer className="footer-container">
         <div className="footer-content">
@@ -562,7 +591,6 @@ function ScrollButton() {
                 </a>
                 <p className="redes">Chiapas Oculto</p>
               </div>
-
 
 
               <div className="social-item">
@@ -590,9 +618,7 @@ function ScrollButton() {
                 <p className="whatsapp-text">Resolver tus dudas</p>
               </div>
 
-
               
-
 
             </div>
 
@@ -622,7 +648,6 @@ function ScrollButton() {
               <p className="info-text">Expedición Chiapaneca.</p>
               <p className="info-text">Rutas Mágicas de Chiapas.</p>
             </div>
-
 
 
             <table className="ubicacion">
@@ -666,5 +691,3 @@ function ScrollButton() {
 };
 
 export default App;
-
-
